@@ -8,6 +8,10 @@
  */
 package tools.api;
 
+import java.util.Iterator;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,11 +36,18 @@ public class WikiPediaApiTest {
 
 	@Test
 	public void testDownloadJSON() {
+		JSONArray res = null;
 		try {
-			api.getJSON("");
+			res = api.getJSON("town");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		res.forEach(System.out::println);
+	}
+	private void showKeysInJSONObject(JSONObject obj) {
+		Iterator<String> it = obj.keys();
+		while(it.hasNext()) {
+			System.out.println("value: " + it.next());
 		}
 	}
 }

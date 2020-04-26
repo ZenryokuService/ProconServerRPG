@@ -16,6 +16,7 @@ import java.io.Reader;
 import java.net.URL;
 import java.nio.charset.Charset;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
@@ -28,18 +29,19 @@ import org.json.JSONObject;
  */
 public class WikiPediaApi {
 	/** WikipediaのURL(エンドポイント) */
-	public static String ROOT_URL = "http://ja.wikipedia.org/w/api.php?";
+	public static String ROOT_URL = "https://ja.wikipedia.org/w/api.php?";
 	public WikiPediaApi() {
 		
 	}
 
-	public JSONObject getJSON(String search) throws Exception {
-		String url = ROOT_URL + "action=query&titles=" + search;
+	public JSONArray getJSON(String search) throws Exception {
+		String url = ROOT_URL + "action=opensearch&namespace=0&format=json&search=" + search;
+		System.out.println("URL: " + url);
 		InputStream is = new URL(url).openStream();
 		 try {
 		      BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
 		      String jsonText = readAll(rd);
-		      JSONObject json = new JSONObject(jsonText);
+		      JSONArray json = new JSONArray(jsonText);
 		      return json;
 		 } finally {
 		      is.close();
@@ -52,6 +54,7 @@ public class WikiPediaApi {
 	  while ((cp = rd.read()) != -1) {
 	    sb.append((char) cp);
 	  }
+	  System.out.println("test: " + sb.toString());
 	  return sb.toString();
 	}
 }
