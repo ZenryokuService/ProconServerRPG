@@ -42,8 +42,22 @@ public class WikiPediaApiTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println("*** Result ***");
 		res.forEach(System.out::println);
 	}
+
+	@Test
+	public void testDownloadJSON1() {
+		JSONArray res = null;
+		try {
+			res = api.getJSON("magic");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("*** Result ***");
+		res.forEach(System.out::println);
+	}
+
 	private void showKeysInJSONObject(JSONObject obj) {
 		Iterator<String> it = obj.keys();
 		while(it.hasNext()) {

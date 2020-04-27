@@ -48,13 +48,13 @@ public class WikiPediaApi {
 		 }
 	}
 
-	private String readAll(Reader rd) throws IOException {
+	private String readAll(BufferedReader rd) throws IOException {
 	  StringBuilder sb = new StringBuilder();
-	  int cp;
-	  while ((cp = rd.read()) != -1) {
-	    sb.append((char) cp);
+	   String cp = null;
+	  while ((cp = rd.readLine()) != null) {
+	    sb.append(cp);
 	  }
-	  System.out.println("test: " + sb.toString());
+//	  System.out.println("test: " + sb.toString());
 	  return sb.toString();
 	}
 }
