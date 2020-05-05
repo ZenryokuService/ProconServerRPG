@@ -6,38 +6,15 @@
  * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
  * Neither the name ProconServerRPG JavaFX Library nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
  */
-package tools.fx.load;
-
-import java.io.File;
-
-import javafx.application.Application;
-import javafx.scene.Group;
-import javafx.stage.Stage;
+package tools.models;
 
 /**
+ * 3Dモデル管理を行うためのクラス。
+ * LWJGLを使用するので、テスト起動にも使用する。
  * @author takunoji
- *
- * 2020/04/27
+ * 2020/05/04
  */
-public class CharctorLoader {
+public class ModelManager {
 
-	/** ３Dモデルのパス */
-	private String modelUrl;
 
-	/**
-	 * 作成した3Dモデルをロード、インスタンスを保持する。
-	 * は池部分(ステージ)を透明化してキャラクターがPC上で動いているように見せる<br/>
-	 * 
-	 * @param res 3dモデルのファイルパス
-	 */
-	public CharctorLoader(String res) {
-		this.modelUrl = res;
-	}
-
-	public void start() {
-		
-	}
-	public static void main(String[] args) {
-		
-	}
 }

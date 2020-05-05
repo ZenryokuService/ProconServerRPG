@@ -6,38 +6,38 @@
  * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
  * Neither the name ProconServerRPG JavaFX Library nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
  */
-package tools.fx.load;
+package tools.lwjgl.render;
 
-import java.io.File;
-
-import javafx.application.Application;
-import javafx.scene.Group;
-import javafx.stage.Stage;
+import org.lwjgl.opengl.ContextAttribs;
+import org.lwjgl.util.Display;
+import org.lwjgl.opengl.DisplayMode;
+import org.lwjgl.opengl.GL11;
 
 /**
+ * チュートリアルで作成しているクラスを写経する。
+ * 
  * @author takunoji
- *
- * 2020/04/27
+ * @see https://www.youtube.com/watch?v=VS8wlS9hF8E&list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP
+ * 2020/05/04
  */
-public class CharctorLoader {
+public class DisplayManager {
+	private static final int WIDTH = 500;
+	private static final int HEIGHT = 500;
 
-	/** ３Dモデルのパス */
-	private String modelUrl;
+	public void createDisplay() {
+		ContextAttribs attribute = new ContextAttribs();
+		DisplayMode[] mode = {new DisplayMode(WIDTH, HEIGHT)};
 
-	/**
-	 * 作成した3Dモデルをロード、インスタンスを保持する。
-	 * は池部分(ステージ)を透明化してキャラクターがPC上で動いているように見せる<br/>
-	 * 
-	 * @param res 3dモデルのファイルパス
-	 */
-	public CharctorLoader(String res) {
-		this.modelUrl = res;
+		try {
+			Display.setDisplayMode(mode, new String[] {"test"});
+			//Display. (new PixelFormat(), attribute);
+		} catch(Exception e) {
+			
+		}
+		GL11.glViewport(0, 0, WIDTH, HEIGHT);
 	}
 
-	public void start() {
-		
-	}
-	public static void main(String[] args) {
+	public void updateDisplay() {
 		
 	}
 }
