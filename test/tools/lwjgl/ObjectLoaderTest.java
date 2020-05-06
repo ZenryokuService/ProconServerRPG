@@ -8,6 +8,8 @@
  */
 package tools.lwjgl;
 
+import tools.lwjgl.disabled.OBJLoader;
+
 /**
  * @author takunoji
  *
