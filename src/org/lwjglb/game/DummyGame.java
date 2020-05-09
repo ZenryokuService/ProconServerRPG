@@ -2,8 +2,6 @@ package org.lwjglb.game;
 
 import org.joml.Vector2f;
 import org.joml.Vector3f;
-import org.joml.Vector4f;
-
 import static org.lwjgl.glfw.GLFW.*;
 import org.lwjglb.engine.GameItem;
 import org.lwjglb.engine.IGameLogic;
@@ -40,29 +38,22 @@ public class DummyGame implements IGameLogic {
         cameraInc = new Vector3f(0.0f, 0.0f, 0.0f);
     }
 
-    /**
-     * @see https://legacy.gitbook.com/book/lwjglgamedev/3d-game-development-with-lwjgl/details
-     */
     @Override
     public void init(Window window) throws Exception {
         renderer.init(window);
 
         float reflectance = 1f;
-//        Mesh mesh = OBJLoader.loadMesh("/models/chr_sword.obj");
-//        Material material = new Material(new Vector4f(0.2f, 0.5f, 0.5f, 0.5f), reflectance);
+        //Mesh mesh = OBJLoader.loadMesh("/models/bunny.obj");
+        //Material material = new Material(new Vector3f(0.2f, 0.5f, 0.5f), reflectance);
 
-        Mesh mesh = OBJLoader.loadMesh("/models/cube.obj");
-        Texture texture = new Texture("/textures/grassblock.png");
+        Mesh mesh = OBJLoader.loadMesh("/models/chr_sword.obj");
+        Texture texture = new Texture("/textures/chr_sword.png");
         Material material = new Material(texture, reflectance);
-
-//        Mesh mesh = OBJLoader.loadMesh("/models/chr_sword.obj");
-//        Texture texture = new Texture("/textures/chr_sword.png");
-//        Material material = new Material(texture, reflectance);
 
         mesh.setMaterial(material);
         GameItem gameItem = new GameItem(mesh);
         gameItem.setScale(0.5f);
-        gameItem.setPosition(-0.0f, -0.0f, -2f);
+        gameItem.setPosition(-0.6f, -0.8f, -1f);
         gameItems = new GameItem[]{gameItem};
 
         ambientLight = new Vector3f(0.3f, 0.3f, 0.3f);

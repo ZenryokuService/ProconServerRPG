@@ -13,6 +13,10 @@
   	  <id>lwjgl</id>
   	  <url>https://mvnrepository.com/artifact/org.lwjgl/lwjgl</url>
   	</repository>
+  	<repository>
+  	  <id>assimp</id>
+  	  <url>https://mvnrepository.com/artifact/org.lwjgl/lwjgl-assimp</url>
+  	</repository>
   </repositories>
   <dependencies>
 	<!-- https://mvnrepository.com/artifact/org.json/json -->

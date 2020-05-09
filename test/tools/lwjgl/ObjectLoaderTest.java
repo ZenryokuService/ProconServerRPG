@@ -8,6 +8,9 @@
  */
 package tools.lwjgl;
 
+import org.junit.Test;
+import org.lwjglb.engine.Utils;
+
 import tools.lwjgl.disabled.OBJLoader;
 
 /**
@@ -17,8 +20,14 @@ import tools.lwjgl.disabled.OBJLoader;
  */
 public class ObjectLoaderTest {
 
+	@Test
 	public void test01() {
-		OBJLoader load = new OBJLoader();
+		try {
+			System.out.println(Utils.loadResource("/shaders/depth_vertex.vs"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 }
